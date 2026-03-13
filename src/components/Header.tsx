@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <header className="w-full z-50 relative">
       {/* Top Bar */}
-      <div className="bg-navy text-primary-foreground">
+      <div className="bg-navy text-primary-foreground border-b border-white/10">
         <div className="container mx-auto px-4 flex items-center justify-between h-10 text-sm">
           <a href="tel:800-210-4878" className="flex items-center gap-2 hover:text-gold transition-colors">
             <Phone size={14} /> 800-210-HURT
@@ -26,17 +26,17 @@ const Header = () => {
       </div>
 
       {/* Main Nav */}
-      <div className="sticky top-0 bg-background shadow-sm z-50">
+      <div className="sticky top-0 bg-navy shadow-sm z-50">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img src={logo} alt="Friedland Law" className="h-12 w-auto" />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link to="/" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Home</Link>
+            <Link to="/" className="text-sm font-medium text-white hover:text-gold transition-colors">Home</Link>
             <div className="relative" onMouseEnter={() => setMegaOpen(true)} onMouseLeave={() => setMegaOpen(false)}>
-              <button className="text-sm font-medium text-charcoal hover:text-gold transition-colors flex items-center gap-1">
+              <button className="text-sm font-medium text-white hover:text-gold transition-colors flex items-center gap-1">
                 Practice Areas <ChevronDown size={14} />
               </button>
               {megaOpen && (
@@ -59,11 +59,11 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <Link to="/attorneys" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Attorneys</Link>
-            <Link to="/results" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Results</Link>
-            <Link to="/locations" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Locations</Link>
-            <Link to="/resources" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Resources</Link>
-            <Link to="/contact" className="text-sm font-medium text-charcoal hover:text-gold transition-colors">Contact</Link>
+            <Link to="/attorneys" className="text-sm font-medium text-white hover:text-gold transition-colors">Attorneys</Link>
+            <Link to="/results" className="text-sm font-medium text-white hover:text-gold transition-colors">Results</Link>
+            <Link to="/locations" className="text-sm font-medium text-white hover:text-gold transition-colors">Locations</Link>
+            <Link to="/resources" className="text-sm font-medium text-white hover:text-gold transition-colors">Resources</Link>
+            <Link to="/contact" className="text-sm font-medium text-white hover:text-gold transition-colors">Contact</Link>
           </nav>
 
           <div className="hidden lg:block">
@@ -71,14 +71,14 @@ const Header = () => {
           </div>
 
           {/* Mobile hamburger */}
-          <button className="lg:hidden text-charcoal" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
+          <button className="lg:hidden text-white hover:text-gold transition-colors" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle menu">
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
 
         {/* Mobile menu */}
         {mobileOpen && (
-          <div className="lg:hidden bg-background border-t border-border px-4 py-6 space-y-4">
+          <div className="lg:hidden bg-navy border-t border-white/10 px-4 py-6 space-y-4 shadow-lg">
             {[
               { to: "/", label: "Home" },
               { to: "/practice-areas", label: "Practice Areas" },
@@ -88,7 +88,7 @@ const Header = () => {
               { to: "/resources", label: "Resources" },
               { to: "/contact", label: "Contact" },
             ].map(link => (
-              <Link key={link.to} to={link.to} className="block text-lg font-medium text-charcoal hover:text-gold transition-colors"
+              <Link key={link.to} to={link.to} className="block text-lg font-medium text-white hover:text-gold transition-colors"
                 onClick={() => setMobileOpen(false)}>
                 {link.label}
               </Link>
