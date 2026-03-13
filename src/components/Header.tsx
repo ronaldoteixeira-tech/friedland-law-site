@@ -62,10 +62,10 @@ const Header = () => {
                 Practice Areas <ChevronDown size={14} />
               </button>
               
-              {/* O AQUI ESTÁ A CORREÇÃO: Usamos pt-4 (padding) ao invés de mt-2 (margin) */}
+              {/* O AQUI ESTÁ A CORREÇÃO: 3 colunas e 600px de largura */}
               {megaOpen && (
                 <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
-                  <div className="bg-background shadow-xl rounded-xl border border-border p-6 w-[700px] grid grid-cols-4 gap-6">
+                  <div className="bg-background shadow-xl rounded-xl border border-border p-6 w-[600px] grid grid-cols-3 gap-6">
                     {megaMenuCategories.map(cat => (
                       <div key={cat.title}>
                         <h4 className="text-xs font-bold text-gold uppercase tracking-wider mb-3">{cat.title}</h4>
