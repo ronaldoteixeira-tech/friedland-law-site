@@ -56,30 +56,36 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-8">
             <Link to="/" className="text-sm font-medium text-white hover:text-gold transition-colors">Home</Link>
+            
             <div className="relative" onMouseEnter={() => setMegaOpen(true)} onMouseLeave={() => setMegaOpen(false)}>
               <button className="text-sm font-medium text-white hover:text-gold transition-colors flex items-center gap-1">
                 Practice Areas <ChevronDown size={14} />
               </button>
+              
+              {/* O AQUI ESTÁ A CORREÇÃO: Usamos pt-4 (padding) ao invés de mt-2 (margin) */}
               {megaOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 bg-background shadow-xl rounded-xl border border-border p-6 w-[700px] grid grid-cols-4 gap-6 mt-2">
-                  {megaMenuCategories.map(cat => (
-                    <div key={cat.title}>
-                      <h4 className="text-xs font-bold text-gold uppercase tracking-wider mb-3">{cat.title}</h4>
-                      <ul className="space-y-2">
-                        {cat.areas.map(area => (
-                          <li key={area.slug}>
-                            <Link to={`/practice-areas/${area.slug}`} className="text-sm text-charcoal hover:text-gold transition-colors"
-                              onClick={() => setMegaOpen(false)}>
-                              {area.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4">
+                  <div className="bg-background shadow-xl rounded-xl border border-border p-6 w-[700px] grid grid-cols-4 gap-6">
+                    {megaMenuCategories.map(cat => (
+                      <div key={cat.title}>
+                        <h4 className="text-xs font-bold text-gold uppercase tracking-wider mb-3">{cat.title}</h4>
+                        <ul className="space-y-2">
+                          {cat.areas.map(area => (
+                            <li key={area.slug}>
+                              <Link to={`/practice-areas/${area.slug}`} className="text-sm text-charcoal hover:text-gold transition-colors block"
+                                onClick={() => setMegaOpen(false)}>
+                                {area.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
+            
             <Link to="/attorneys" className="text-sm font-medium text-white hover:text-gold transition-colors">Attorneys</Link>
             <Link to="/results" className="text-sm font-medium text-white hover:text-gold transition-colors">Results</Link>
             <Link to="/locations" className="text-sm font-medium text-white hover:text-gold transition-colors">Locations</Link>
