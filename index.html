@@ -44,6 +44,18 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en', 
+          includedLanguages: 'en,es,pt',
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <script>
       (function (w,d,s,v,odl){(w[v]=w[v]||{})['odl']=odl;;
       var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;
@@ -51,5 +63,5 @@
       f.parentNode.insertBefore(j,f);
       })(window, document, 'script','Intaker', 'friedlandlaw');
     </script>
-    </body>
+  </body>
 </html>
