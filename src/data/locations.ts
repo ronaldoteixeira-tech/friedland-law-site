@@ -1,99 +1,53 @@
-import { Helmet } from "react-helmet-async";
-import { MapPin, Phone } from "lucide-react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import StickyMobileCTA from "@/components/StickyMobileCTA";
-import { locations } from "@/data/locations";
-import CTAButton from "@/components/CTAButton";
+export interface Location {
+  city: string;
+  state: string;
+  slug: string;
+  address: string;
+  zip: string;
+  phone: string;
+  mapUrl?: string;
+  iframeSrc?: string;
+}
 
-const Locations = () => {
-  return (
-    <>
-      <Helmet>
-        <title>Our Office Locations | Friedland Law</title>
-        <meta name="description" content="Find a Friedland Law office near you. We serve clients across Florida, New York, and New Jersey." />
-      </Helmet>
-      
-      <Header />
-      
-      <main>
-        {/* Banner Principal */}
-        <section className="bg-navy py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-bold text-primary-foreground mb-4">Our Locations</h1>
-            <p className="text-primary-foreground/70 max-w-2xl mx-auto text-lg">
-              Proudly serving clients across Florida, New York & New Jersey. Find an office near you or contact us for a free virtual consultation.
-            </p>
-          </div>
-        </section>
-
-        {/* Grid de Endereços com Mapas Interativos */}
-        <section className="py-20 bg-gray-light">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
-              {locations.map((loc) => (
-                <div key={loc.slug} className="bg-background rounded-xl overflow-hidden shadow-sm border border-border flex flex-col transition-all hover:shadow-md">
-                  
-                  {/* Renderização do Iframe do Google Maps (Igual à Home) */}
-                  {loc.iframeSrc && (
-                    <div className="w-full h-[300px] bg-muted">
-                      <iframe 
-                        src={loc.iframeSrc} 
-                        width="100%" 
-                        height="100%" 
-                        style={{ border: 0 }} 
-                        allowFullScreen 
-                        loading="lazy" 
-                        referrerPolicy="no-referrer-when-downgrade"
-                      ></iframe>
-                    </div>
-                  )}
-                  
-                  {/* Detalhes do Escritório */}
-                  <div className="p-8 flex flex-col flex-grow">
-                    <h2 className="text-2xl font-bold text-navy mb-4 border-b border-border pb-4">{loc.city} Office</h2>
-                    
-                    <div className="space-y-4 mb-8 flex-grow">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="text-gold shrink-0 mt-1" size={20} />
-                        <div>
-                          <p className="text-charcoal font-medium">{loc.address}</p>
-                          <p className="text-muted-foreground">{loc.city}, {loc.state} {loc.zip}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-center gap-3">
-                        <Phone className="text-gold shrink-0" size={20} />
-                        <a href="tel:800-210-4878" className="text-charcoal hover:text-gold transition-colors font-medium">
-                          {loc.phone}
-                        </a>
-                      </div>
-                    </div>
-                    
-                    {/* Botões de Ação */}
-                    <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-                      <a 
-                        href={loc.mapUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex-1 bg-white hover:bg-gold hover:text-white text-navy font-semibold py-3 px-4 rounded transition-colors text-center border border-border hover:border-gold"
-                      >
-                        Get Directions
-                      </a>
-                      <CTAButton text="Contact Office" href="/contact" variant="primary" className="flex-1" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </main>
-      
-      <Footer />
-      <StickyMobileCTA />
-    </>
-  );
-};
-
-export default Locations;
+export const locations: Location[] = [
+  { 
+    city: "New York", 
+    state: "NY", 
+    slug: "new-york", 
+    address: "50 Broad Street #1502", 
+    zip: "10004", 
+    phone: "800-210-HURT",
+    mapUrl: "https://maps.app.goo.gl/rNbu1kpihAt2csAQ8",
+    iframeSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3024.562809024467!2d-74.0116234!3d40.7056253!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25bccb415a81b%3A0x28de6cdaeb1bfbb9!2sFriedland%20Law%20-%20Car%20Accident%20and%20Personal%20Injury%20Attorneys%20-%20New%20York%20City!5e0!3m2!1sen!2sbr!4v1773407139684!5m2!1sen!2sbr"
+  },
+  { 
+    city: "Jacksonville", 
+    state: "FL", 
+    slug: "jacksonville", 
+    address: "6620 Southpoint Dr S Suite 115-E", 
+    zip: "32216", 
+    phone: "800-210-HURT",
+    mapUrl: "https://maps.app.goo.gl/KSHX3WwmodLTA4E76",
+    iframeSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3446.481086907332!2d-81.5916005!3d30.251871!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5cbc7298cd4d1%3A0xc93944ac788a0936!2sFriedland%20Law%2C%20Car%20Accident%20and%20Personal%20Injury%20Attorneys%20-%20Jacksonville!5e0!3m2!1sen!2sbr!4v1773407153443!5m2!1sen!2sbr"
+  },
+  { 
+    city: "New Jersey", 
+    state: "NJ", 
+    slug: "river-edge", 
+    address: "70 Grand Ave #107, River Edge", 
+    zip: "07661", 
+    phone: "800-210-HURT",
+    mapUrl: "https://maps.app.goo.gl/jwzEEXDehszL3n5s5",
+    iframeSrc: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3015.2422403973706!2d-74.0369412!3d40.9104342!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2fb20e4262f13%3A0xb16a701f7e6e5dfc!2sFriedland%20Law%20-%20Car%20Accident%20and%20Personal%20Injury%20Attorneys%20-%20New%20Jersey!5e0!3m2!1sen!2sbr!4v1773407165462!5m2!1sen!2sbr"
+  },
+  { 
+    city: "Ft. Lauderdale", 
+    state: "FL", 
+    slug: "ft-lauderdale", 
+    address: "101 NE 3rd Ave Suite 1600", 
+    zip: "33301", 
+    phone: "800-210-HURT",
+    mapUrl: "https://maps.app.goo.gl/zJLQ94poSedG4r429",
+    iframeSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.244651512293!2d-80.1410971!3d26.1235649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d901aa437104b5%3A0x9a459a2f11460630!2sFriedland%20Law%20-%20Car%20Accident%20and%20Personal%20Injury%20Attorneys%20-%20Fort%20Lauderdale!5e0!3m2!1sen!2sbr!4v1773407126221!5m2!1sen!2sbr"
+  }
+];
