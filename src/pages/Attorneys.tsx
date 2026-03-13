@@ -6,11 +6,14 @@ import StickyMobileCTA from "@/components/StickyMobileCTA";
 import { attorneys, seniorStaff } from "@/data/attorneys";
 import { User } from "lucide-react";
 
-// Carrega dinamicamente todas as imagens da pasta assets
-const images = import.meta.glob<{ default: string }>('@/assets/*.{png,jpg,jpeg,webp}', { eager: true });
+// Utilizamos caminho relativo e adicionamos todas as variações para garantir a leitura pelo Vite
+const images = import.meta.glob<{ default: string }>('../assets/*.{png,jpg,jpeg,webp,PNG,JPG,JPEG,WEBP}', { eager: true });
 
 const getImageForSlug = (slug: string) => {
-  const matchingKey = Object.keys(images).find(key => key.includes(`/${slug}.`));
+  // Transforma tanto a busca quanto o nome do arquivo em minúsculas para evitar erros de case-sensitive
+  const matchingKey = Object.keys(images).find(key => 
+    key.toLowerCase().includes(`/${slug.toLowerCase()}.`)
+  );
   return matchingKey ? images[matchingKey].default : null;
 };
 
@@ -21,7 +24,7 @@ const AttorneyCard = ({ attorney }: { attorney: typeof attorneys[0] }) => {
     <Link to={`/attorneys/${attorney.slug}`} className="group border border-border rounded-xl overflow-hidden hover:border-gold transition-all bg-background flex flex-col h-full shadow-sm hover:shadow-md">
       <div className="aspect-[3/4] bg-gray-light flex items-center justify-center overflow-hidden">
         {imageUrl ? (
-          <img src={imageUrl} alt={attorney.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <img src={imageUrl} alt={attorney.name} className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" />
         ) : (
           <User className="text-muted-foreground/30" size={80} />
         )}
