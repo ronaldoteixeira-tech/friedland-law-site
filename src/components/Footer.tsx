@@ -1,3 +1,4 @@
+import logo from "@/assets/friedland-law-gold-logo.png";
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube } from "lucide-react";
 import { locations } from "@/data/locations";
@@ -9,8 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1 - Brand */}
           <div>
-            <Link to="/" className="font-bold text-2xl tracking-tight">
-              FRIEDLAND <span className="text-gold">LAW</span>
+            <Link to="/" className="inline-block mb-2">
+              <img src={logo} alt="Friedland Law" className="h-14 w-auto" />
             </Link>
             <p className="mt-3 text-sm text-primary-foreground/70 italic">Your Fight. Our Battle.™</p>
             <div className="flex gap-4 mt-6">
