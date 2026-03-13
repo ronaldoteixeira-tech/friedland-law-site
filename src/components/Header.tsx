@@ -9,6 +9,15 @@ const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
 
+  // Função para acionar o Google Translate oculto
+  const translatePage = (lang: string) => {
+    const combo = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (combo) {
+      combo.value = lang;
+      combo.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  };
+
   return (
     <header className="w-full z-50 relative">
       {/* Top Bar */}
@@ -18,11 +27,20 @@ const Header = () => {
             <Phone size={14} /> 800-210-HURT
           </a>
           <div className="hidden sm:flex items-center gap-4">
-            <button className="text-xs border border-primary-foreground/30 px-2 py-0.5 rounded hover:text-gold hover:border-gold transition-colors">
-              Se Habla Español
+            <button 
+              onClick={() => translatePage('en')}
+              className="text-xs border border-primary-foreground/30 px-2 py-0.5 rounded hover:text-gold hover:border-gold transition-colors cursor-pointer">
+              English
             </button>
-            <button className="text-xs border border-primary-foreground/30 px-2 py-0.5 rounded hover:text-gold hover:border-gold transition-colors">
-              Falamos Português
+            <button 
+              onClick={() => translatePage('es')}
+              className="text-xs border border-primary-foreground/30 px-2 py-0.5 rounded hover:text-gold hover:border-gold transition-colors cursor-pointer">
+              Español
+            </button>
+            <button 
+              onClick={() => translatePage('pt')}
+              className="text-xs border border-primary-foreground/30 px-2 py-0.5 rounded hover:text-gold hover:border-gold transition-colors cursor-pointer">
+              Português
             </button>
           </div>
         </div>
