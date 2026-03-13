@@ -11,11 +11,11 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-bold leading-tight text-primary-foreground mb-4">
-            Your Case Isn't a Number.{" "}
-            <span className="text-gold">It's Your Life.</span>
+            Your Fight,{" "}
+            <span className="text-gold">Our Battle.</span>
           </h1>
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-lg">
-            Get Direct Access to a Trial Lawyer — Not a Call Center.
+            Your Case Isn't Just a Number. It's Your Life.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-6">
             <CTAButton text="Start Your Free Strategy Session" href="/contact" variant="primary" />
