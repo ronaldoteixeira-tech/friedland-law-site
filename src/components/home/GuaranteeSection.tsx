@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import { Handshake, Gavel, Clock } from "lucide-react";
 
-// Os teus textos e ícones originais mantidos e estruturados
+// 1. Importação da nova imagem de fundo (usando caminho relativo para evitar erros)
+// AVISO: Se a tua imagem for .png ou .webp, altera a extensão aqui!
+import skylineBg2 from "../../assets/skyline-bg-2.jpg";
+
 const guarantees = [
   {
     icon: Handshake,
@@ -24,7 +27,6 @@ const guarantees = [
 const GuaranteeCard = ({ title, text, icon: Icon }: any) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  // Função que rastreia o mouse para criar o efeito de "lanterna"
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
@@ -41,7 +43,6 @@ const GuaranteeCard = ({ title, text, icon: Icon }: any) => {
       onMouseMove={handleMouseMove}
       className="relative overflow-hidden bg-white/5 border border-white/10 p-8 rounded-xl group transition-colors duration-300 hover:border-gold/50 cursor-default backdrop-blur-sm flex flex-col items-center text-center shadow-lg"
     >
-      {/* Efeito de brilho Dourado (Gold Glow) que segue o mouse */}
       <div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
@@ -49,9 +50,7 @@ const GuaranteeCard = ({ title, text, icon: Icon }: any) => {
         }}
       />
 
-      {/* Conteúdo do Card (z-10 para ficar por cima do brilho) */}
       <div className="relative z-10 flex flex-col items-center">
-        {/* Ícone com fundo arredondado e borda sutil */}
         <div className="w-16 h-16 bg-navy/50 rounded-full flex items-center justify-center mb-6 border border-white/5 group-hover:border-gold/30 transition-colors backdrop-blur-md">
           <Icon className="w-8 h-8 text-gold" />
         </div>
@@ -68,16 +67,23 @@ const GuaranteeCard = ({ title, text, icon: Icon }: any) => {
 
 const GuaranteeSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-navy relative border-t border-white/5">
+    // 2. Adicionado bg-fixed (efeito paralax), bg-cover e bg-center
+    <section
+      className="py-20 lg:py-28 relative border-t border-white/5 bg-fixed bg-cover bg-center"
+      style={{ backgroundImage: `url(${skylineBg2})` }}
+    >
+      {/* 3. Máscara Azul MAIS FORTE (bg-navy/90). 
+          Isso deixará a imagem de fundo bem subtil e o azul predominante. */}
+      <div className="absolute inset-0 bg-navy/90 z-0"></div>
+
       <div className="container mx-auto px-4 relative z-10">
-        {/* Título Original Mantido */}
+        {/* Título com drop-shadow para destacar ainda mais sobre o fundo */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
             Your Lawyer. Not a Case Manager. <span className="text-gold">Guaranteed.</span>
           </h2>
         </div>
 
-        {/* Grade ajustada para 3 colunas (md:grid-cols-3) já que tens 3 itens */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
           {guarantees.map((item, index) => (
             <GuaranteeCard key={index} {...item} />
