@@ -1,31 +1,25 @@
 import CTAButton from "../CTAButton";
 import { Phone } from "lucide-react";
-import heroVideo from "@/assets/hero-video-friedland.mp4"; // Usando o vídeo
+import heroVideo from "@/assets/hero-video-friedland.mp4";
 import headerImg from "@/assets/header-img.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative w-full min-h-[600px] flex items-center overflow-hidden bg-navy">
-      {/* 1. Vídeo de Background */}
+    // 1. AQUI ESTÁ A MUDANÇA PRINCIPAL: min-h-[80vh] lg:min-h-[90vh] em vez de min-h-[600px]
+    <section className="relative w-full min-h-[80vh] lg:min-h-[90vh] flex items-center overflow-hidden bg-navy">
+      {/* Vídeo de Background */}
       <div className="absolute inset-0 z-0">
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src={heroVideo} type="video/mp4" />
         </video>
 
-        {/* MÁSCARAS MAIS CLARAS:
-          - bg-navy/40 (antes era 80): Controla a escuridão geral. Se quiseres ainda mais claro, muda para bg-navy/20 ou remove o "mix-blend-multiply".
-        */}
         <div className="absolute inset-0 bg-navy/40 mix-blend-multiply"></div>
-
-        {/* - Degradê suavizado: from-navy/80 via-navy/50 (antes era from-navy via-navy/90). 
-          Isto garante que o texto na esquerda continua legível, mas o lado direito do vídeo fica mais nítido.
-        */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 py-12 lg:py-20">
         {/* Textos à esquerda */}
-        <div className="max-w-2xl flex-1 text-left">
+        <div className="max-w-2xl flex-1 text-left mt-8 lg:mt-0">
           <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-tight text-white mb-6">
             Your Fight, <span className="text-gold">Our Battle.</span>
           </h1>
@@ -58,7 +52,8 @@ const HeroSection = () => {
           <img
             src={headerImg}
             alt="Friedland Law Attorneys"
-            className="w-full h-auto object-contain max-h-[550px] drop-shadow-2xl relative z-10"
+            // AQUI TAMBÉM MUDOU: Adicionado lg:max-h-[750px] para acompanhar o novo tamanho da tela
+            className="w-full h-auto object-contain max-h-[550px] lg:max-h-[750px] drop-shadow-2xl relative z-10"
           />
         </div>
       </div>
