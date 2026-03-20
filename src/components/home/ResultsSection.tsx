@@ -5,49 +5,49 @@ import placeholderImg from "@/assets/hero-bg.jpg";
 
 // Dados da grade combinando Áreas de Atuação com Vereditos (Estilo Morgan & Morgan)
 const practiceAreas = [
-  {
-    title: "Car Accidents",
-    highlight: "$5.2 Million",
-    subtitle: "Jury Verdict vs. $100k Offer",
-    image: placeholderImg,
-    link: "/practice-areas/car-accidents",
-  },
-  {
-    title: "Truck Accidents",
-    highlight: "$8.5 Million",
-    subtitle: "Settlement Secured",
-    image: placeholderImg,
-    link: "/practice-areas/truck-accidents",
-  },
-  {
-    title: "Motorcycle Accidents",
-    highlight: "20x",
-    subtitle: "More Than Initial Insurance Offer",
-    image: placeholderImg,
-    link: "/practice-areas/motorcycle-accidents",
-  },
-  {
-    title: "Slip & Fall",
-    highlight: "$2.1 Million",
-    subtitle: "Premises Liability Verdict",
-    image: placeholderImg,
-    link: "/practice-areas/slip-and-fall",
-  },
-  {
-    title: "Wrongful Death",
-    highlight: "$12 Million",
-    subtitle: "Confidential Settlement",
-    image: placeholderImg,
-    link: "/practice-areas/wrongful-death",
-  },
-  {
-    title: "Brain Injuries",
-    highlight: "$4.5 Million",
-    subtitle: "Trial Verdict for TBI",
-    image: placeholderImg,
-    link: "/practice-areas/brain-injuries",
-  },
-];
+{
+  title: "Car Accidents",
+  highlight: "$5.2 Million",
+  subtitle: "Jury Verdict vs. $100k Offer",
+  image: placeholderImg,
+  link: "/practice-areas/car-accidents"
+},
+{
+  title: "Truck Accidents",
+  highlight: "$8.5 Million",
+  subtitle: "Settlement Secured",
+  image: placeholderImg,
+  link: "/practice-areas/truck-accidents"
+},
+{
+  title: "Motorcycle Accidents",
+  highlight: "20x",
+  subtitle: "More Than Initial Insurance Offer",
+  image: placeholderImg,
+  link: "/practice-areas/motorcycle-accidents"
+},
+{
+  title: "Slip & Fall",
+  highlight: "$2.1 Million",
+  subtitle: "Premises Liability Verdict",
+  image: placeholderImg,
+  link: "/practice-areas/slip-and-fall"
+},
+{
+  title: "Wrongful Death",
+  highlight: "$12 Million",
+  subtitle: "Confidential Settlement",
+  image: placeholderImg,
+  link: "/practice-areas/wrongful-death"
+},
+{
+  title: "Brain Injuries",
+  highlight: "$4.5 Million",
+  subtitle: "Trial Verdict for TBI",
+  image: placeholderImg,
+  link: "/practice-areas/brain-injuries"
+}];
+
 
 const PracticeAreasGrid = () => {
   return (
@@ -55,8 +55,8 @@ const PracticeAreasGrid = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Cabeçalho da Seção */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Our Victories. <span className="text-gold">Your Practice Areas.</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">+$100 MILLION RECOVERED
+FOR CLIENTS.<span className="text-gold">Your Practice Areas.</span>
           </h2>
           <p className="text-lg text-white/80">
             We don't just handle cases; we maximize them. Select your accident type below to see how we've defeated the
@@ -66,18 +66,18 @@ const PracticeAreasGrid = () => {
 
         {/* Grade de Cards Estilo Veredito */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {practiceAreas.map((area, index) => (
-            <a
-              href={area.link}
-              key={index}
-              className="group relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl block bg-black"
-            >
+          {practiceAreas.map((area, index) =>
+          <a
+            href={area.link}
+            key={index}
+            className="group relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl block bg-black">
+            
               {/* Imagem de Fundo com Zoom no Hover */}
               <img
-                src={area.image}
-                alt={area.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40"
-              />
+              src={area.image}
+              alt={area.title}
+              className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40" />
+            
 
               {/* Overlay Escuro para garantir a leitura do texto */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-opacity duration-500 group-hover:via-black/70"></div>
@@ -104,11 +104,11 @@ const PracticeAreasGrid = () => {
                 </div>
               </div>
             </a>
-          ))}
+          )}
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default PracticeAreasGrid;
