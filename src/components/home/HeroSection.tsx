@@ -32,33 +32,33 @@ const HeroSection = () => {
               text="Call: 800-210-HURT"
               href="tel:800-210-4878"
               variant="hero-outline"
-              icon={<Phone size={18} />}
-            />
+              icon={<Phone size={18} />} />
+            
           </div>
           <div className="flex flex-wrap gap-3">
-            {["No Win, No Fee", "Se Habla Español", "Falamos Português"].map((badge) => (
-              <span
-                key={badge}
-                className="text-sm text-white/90 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm"
-              >
+            {["No Win, No Fee", "Se Habla Español", "Falamos Português"].map((badge) =>
+            <span
+              key={badge}
+              className="text-sm text-white/90 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm">
+              
                 {badge}
               </span>
-            ))}
+            )}
           </div>
         </div>
 
         {/* 2. Imagem dos Sócios Sobreposta (header-img) à direita */}
         <div className="flex-1 flex justify-center lg:justify-end w-full max-w-md lg:max-w-none relative">
-          <img
-            src={headerImg}
-            alt="Friedland Law Attorneys"
-            // AQUI TAMBÉM MUDOU: Adicionado lg:max-h-[750px] para acompanhar o novo tamanho da tela
-            className="w-full h-auto object-contain max-h-[550px] lg:max-h-[750px] drop-shadow-2xl relative z-10"
-          />
+          
+
+
+
+
+          
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default HeroSection;
