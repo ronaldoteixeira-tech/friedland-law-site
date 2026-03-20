@@ -1,58 +1,64 @@
 import CTAButton from "../CTAButton";
 import { Phone } from "lucide-react";
-import heroVideo from "@/assets/hero-video-friedland.mp4";
+import heroVideo from "@/assets/hero-video-friedland.mp4"; // Usando o vídeo
 import headerImg from "@/assets/header-img.png";
 
 const HeroSection = () => {
   return (
     <section className="relative w-full min-h-[600px] flex items-center overflow-hidden bg-navy">
-      
-      {/* 1. Vídeo de Background com efeito de escurecimento para leitura */}
+      {/* 1. Vídeo de Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
+        <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src={heroVideo} type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-navy/80 mix-blend-multiply"></div>
-        {/* Degradê para transição suave com o restante do site */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-transparent"></div>
+
+        {/* MÁSCARAS MAIS CLARAS:
+          - bg-navy/40 (antes era 80): Controla a escuridão geral. Se quiseres ainda mais claro, muda para bg-navy/20 ou remove o "mix-blend-multiply".
+        */}
+        <div className="absolute inset-0 bg-navy/40 mix-blend-multiply"></div>
+
+        {/* - Degradê suavizado: from-navy/80 via-navy/50 (antes era from-navy via-navy/90). 
+          Isto garante que o texto na esquerda continua legível, mas o lado direito do vídeo fica mais nítido.
+        */}
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/80 via-navy/50 to-transparent"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 py-12 lg:py-20">
-        
         {/* Textos à esquerda */}
         <div className="max-w-2xl flex-1 text-left">
           <h1 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold leading-tight text-white mb-6">
-            Your Fight,{" "}
-            <span className="text-gold">Our Battle.</span>
+            Your Fight, <span className="text-gold">Our Battle.</span>
           </h1>
           <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-lg">
             Your Case Isn't Just a Number. It's Your Life. We provide direct attorney access for every client.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <CTAButton text="Start Your Free Strategy Session" href="/contact" variant="primary" />
-            <CTAButton text="Call: 800-210-HURT" href="tel:800-210-4878" variant="hero-outline" icon={<Phone size={18} />} />
+            <CTAButton
+              text="Call: 800-210-HURT"
+              href="tel:800-210-4878"
+              variant="hero-outline"
+              icon={<Phone size={18} />}
+            />
           </div>
           <div className="flex flex-wrap gap-3">
-            {["No Win, No Fee", "Se Habla Español", "Falamos Português"].map(badge => (
-              <span key={badge} className="text-sm text-white/90 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm">
+            {["No Win, No Fee", "Se Habla Español", "Falamos Português"].map((badge) => (
+              <span
+                key={badge}
+                className="text-sm text-white/90 border border-white/30 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm"
+              >
                 {badge}
               </span>
             ))}
           </div>
         </div>
-        
+
         {/* 2. Imagem dos Sócios Sobreposta (header-img) à direita */}
         <div className="flex-1 flex justify-center lg:justify-end w-full max-w-md lg:max-w-none relative">
-          <img 
-            src={headerImg} 
-            alt="Friedland Law Attorneys" 
-            className="w-full h-auto object-contain max-h-[550px] drop-shadow-2xl relative z-10" 
+          <img
+            src={headerImg}
+            alt="Friedland Law Attorneys"
+            className="w-full h-auto object-contain max-h-[550px] drop-shadow-2xl relative z-10"
           />
         </div>
       </div>
