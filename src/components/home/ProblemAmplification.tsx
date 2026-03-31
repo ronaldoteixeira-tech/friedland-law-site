@@ -91,7 +91,7 @@ const ProblemAmplification = () => {
         {/* Título da Seção */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-            Why Choose <span className="text-gold">Friedland & Associates?</span>
+            Why Choose <span className="text-gold">Friedland Law?</span>
           </h2>
           <p className="text-lg text-white/90 drop-shadow-md">
             When you're dealing with the aftermath of an accident, you need a legal team that puts your recovery first.
