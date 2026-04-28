@@ -1,114 +1,141 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
+import CountUp from "../ui/CountUp";
 
 // 1. Importações com caminhos relativos (mais seguros).
-// AVISO: Se alguma das tuas imagens for .png ou .jpeg em vez de .jpg,
-// basta alterares a extensão aqui nestas linhas!
-import carImg from "../../assets/car-accident.jpg";
-import truckImg from "../../assets/truck-accident.jpg";
-import motoImg from "../../assets/motorcycle-accident.jpg";
-import slipImg from "../../assets/slip-and-fall.jpg";
-import deathImg from "../../assets/wrongful-death.jpg";
-import brainImg from "../../assets/brain-injury.jpg";
+import settlement1 from "../../assets/results/settlement-1.png";
+import settlement2 from "../../assets/results/settlement-2.png";
+import settlement3 from "../../assets/results/settlement-3.png";
+import settlement4 from "../../assets/results/settlement-4.jfif";
 
-// Dados dos vereditos e resultados
+// Dados dos vereditos e resultados atualizados com valores numéricos para o CountUp
 const caseResults = [
   {
     title: "Car Accidents",
-    highlight: "$5.2 Million",
+    value: 5.2,
+    prefix: "$",
+    suffix: " Million",
+    decimals: 1,
     subtitle: "Jury Verdict vs. $100k Offer",
-    image: carImg, // Variável da imagem correspondente
+    image: settlement1,
     link: "/results/car-accidents",
   },
   {
     title: "Truck Accidents",
-    highlight: "$8.5 Million",
+    value: 8.5,
+    prefix: "$",
+    suffix: " Million",
+    decimals: 1,
     subtitle: "Settlement Secured",
-    image: truckImg, // Variável da imagem correspondente
+    image: settlement2,
     link: "/results/truck-accidents",
   },
   {
     title: "Motorcycle Accidents",
-    highlight: "20x",
+    value: 20,
+    prefix: "",
+    suffix: "x",
+    decimals: 0,
     subtitle: "More Than Initial Insurance Offer",
-    image: motoImg, // Variável da imagem correspondente
+    image: settlement3,
     link: "/results/motorcycle-accidents",
   },
   {
     title: "Slip & Fall",
-    highlight: "$2.1 Million",
+    value: 2.1,
+    prefix: "$",
+    suffix: " Million",
+    decimals: 1,
     subtitle: "Premises Liability Verdict",
-    image: slipImg, // Variável da imagem correspondente
+    image: settlement4,
     link: "/results/slip-and-fall",
   },
   {
     title: "Wrongful Death",
-    highlight: "$12 Million",
+    value: 12,
+    prefix: "$",
+    suffix: " Million",
+    decimals: 0,
     subtitle: "Confidential Settlement",
-    image: deathImg, // Variável da imagem correspondente
+    image: settlement1,
     link: "/results/wrongful-death",
   },
   {
     title: "Brain Injuries",
-    highlight: "$4.5 Million",
+    value: 4.5,
+    prefix: "$",
+    suffix: " Million",
+    decimals: 1,
     subtitle: "Trial Verdict for TBI",
-    image: brainImg, // Variável da imagem correspondente
+    image: settlement2,
     link: "/results/brain-injuries",
   },
 ];
 
 const ResultsSection = () => {
   return (
-    <section className="py-20 lg:py-28 bg-white relative">
+    <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Cabeçalho da Seção de Resultados */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-navy mb-6 uppercase tracking-tight">
-            +$1 Billion <span className="text-gold">Recovered for Clients.</span>
+          <h2 className="text-4xl md:text-7xl font-black text-navy mb-6 uppercase tracking-tighter">
+            +<CountUp from={0.1} to={1} decimals={1} prefix="$" suffix=" Billion" className="text-gold" />
+            <br className="md:hidden" /> 
+            <span className="md:ml-4">Recovered for Clients.</span>
           </h2>
-          <p className="text-lg text-gray-600">
-            We don't just handle cases; we maximize them. Select your accident type below to see how we've defeated the
-            insurance companies in situations just like yours.
+          <div className="h-2 w-32 bg-gold mx-auto mb-8"></div>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            We don't just handle cases; we maximize them. Our track record speaks for itself with 
+            over a billion dollars secured for victims of negligence.
           </p>
         </div>
 
         {/* Grade de Cards Estilo Veredito */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseResults.map((result, index) => (
             <a
               href={result.link}
               key={index}
-              className="group relative h-[400px] md:h-[450px] overflow-hidden rounded-2xl block bg-black shadow-xl"
+              className="group relative h-[450px] overflow-hidden rounded-3xl block bg-black shadow-2xl border border-white/10"
             >
               {/* Imagem de Fundo com Zoom no Hover */}
               <img
                 src={result.image}
                 alt={result.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-110 group-hover:opacity-40"
+                className="absolute inset-0 w-full h-full object-cover opacity-50 transition-all duration-1000 group-hover:scale-110 group-hover:opacity-30"
               />
 
-              {/* Overlay Escuro */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent transition-opacity duration-500 group-hover:via-black/70"></div>
+              {/* Overlay Gradiente dinâmico */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-500 group-hover:via-black/60"></div>
 
-              {/* Conteúdo do Card (Fica na parte inferior) */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end z-10">
-                {/* O container de texto sobe ligeiramente quando passa o mouse */}
-                <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {/* Multiplicador / Veredito */}
-                  <div className="text-gold text-4xl md:text-[3.25rem] font-black leading-none mb-2 tracking-tighter">
-                    {result.highlight}
+              {/* Conteúdo do Card */}
+              <div className="absolute inset-0 p-10 flex flex-col justify-end z-10">
+                <div className="transform translate-y-6 group-hover:translate-y-0 transition-transform duration-700 ease-out">
+                  {/* Veredito Animado */}
+                  <div className="text-gold text-5xl md:text-6xl font-black leading-none mb-3 tracking-tighter">
+                    <CountUp 
+                      from={0} 
+                      to={result.value} 
+                      decimals={result.decimals} 
+                      prefix={result.prefix} 
+                      suffix={result.suffix} 
+                    />
                   </div>
 
                   {/* Contexto do Veredito */}
-                  <div className="text-white/80 text-sm md:text-base uppercase tracking-wider font-semibold mb-6">
+                  <div className="text-white/90 text-sm md:text-base uppercase tracking-[0.2em] font-bold mb-8 border-l-2 border-gold pl-4">
                     {result.subtitle}
                   </div>
 
-                  {/* Título da Área/Caso com Seta Animada */}
-                  <h3 className="text-white text-2xl md:text-3xl font-bold flex items-center gap-3">
-                    {result.title}
-                    <ArrowRight className="w-6 h-6 text-gold opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out" />
-                  </h3>
+                  {/* Título da Área/Caso */}
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-white text-2xl md:text-3xl font-extrabold tracking-tight">
+                      {result.title}
+                    </h3>
+                    <div className="w-12 h-12 rounded-full bg-gold/10 border border-gold/20 flex items-center justify-center group-hover:bg-gold group-hover:text-navy transition-all duration-500">
+                      <ArrowRight className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </a>
