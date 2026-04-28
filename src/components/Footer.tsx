@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Coluna 1 - Logo e Info (Ajustada com lg:pl-8 para empurrar levemente para a direita) */}
           <div className="lg:pl-8">
             <Link to="/" className="inline-block mb-6">
-              <img src={logo} alt="Friedland Law" className="h-16 w-auto" />
+              <img src={logo} alt="Friedland Law" className="h-16 w-auto max-w-full object-contain" />
             </Link>
             <p className="text-white/70 text-sm mb-6 leading-relaxed">
               Your Case Isn't Just a Number. It's Your Life. We provide direct attorney access for personal injury cases across Florida, New York, and New Jersey.

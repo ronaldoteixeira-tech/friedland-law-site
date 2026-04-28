@@ -50,7 +50,7 @@ const Header = () => {
       <div className="sticky top-0 bg-navy shadow-sm z-50">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Friedland Law" className="h-12 w-auto" />
+            <img src={logo} alt="Friedland Law" className="h-12 w-auto max-w-full object-contain" />
           </Link>
 
           {/* Desktop Nav */}
