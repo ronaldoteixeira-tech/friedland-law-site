@@ -64,7 +64,7 @@ const ResultsSection = () => {
         {/* Cabeçalho da Seção de Resultados */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-navy mb-6 uppercase tracking-tight">
-            +$100 Million <span className="text-gold">Recovered for Clients.</span>
+            +$1 Billion <span className="text-gold">Recovered for Clients.</span>
           </h2>
           <p className="text-lg text-gray-600">
             We don't just handle cases; we maximize them. Select your accident type below to see how we've defeated the

@@ -80,7 +80,7 @@ const GuaranteeSection = () => {
         {/* Título com drop-shadow para destacar ainda mais sobre o fundo */}
         <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 drop-shadow-lg">
-            Your Lawyer. Not a Case Manager. <span className="text-gold">Guaranteed.</span>
+            Your Lawyer. Not Only a Case Manager. <span className="text-gold">Guaranteed.</span>
           </h2>
         </div>
 
