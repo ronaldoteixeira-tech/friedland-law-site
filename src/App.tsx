@@ -12,9 +12,8 @@ import AttorneyDetail from "./pages/AttorneyDetail";
 import Results from "./pages/Results";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
-import LocationsPage from "./pages/Locations";
 import FAQ from "./pages/FAQ";
-import Resources from "./pages/Resources";
+import News from "./pages/News";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,9 +34,8 @@ const App = () => (
             <Route path="/results" element={<Results />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/locations" element={<LocationsPage />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/resources" element={<Resources />} />
+            <Route path="/news" element={<News />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

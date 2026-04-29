@@ -12,19 +12,19 @@ const blogPosts = [
   { title: "The Importance of Medical Documentation", slug: "importance-medical-documentation", date: "2026-01-10", excerpt: "[PLACEHOLDER] Proper medical documentation is one of the most important factors in a successful injury claim." },
 ];
 
-const Resources = () => {
+const News = () => {
   return (
     <>
       <Helmet>
-        <title>Resources & Blog | Friedland Law</title>
-        <meta name="description" content="Legal resources and blog posts about personal injury law from Friedland Law." />
+        <title>Latest News & Legal Insights | Friedland Law</title>
+        <meta name="description" content="Legal news and insights about personal injury law from Friedland Law." />
       </Helmet>
       <Header />
       <main>
         <section className="bg-navy py-20">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-4xl font-bold text-primary-foreground mb-4">Resources</h1>
-            <p className="text-primary-foreground/70">Legal insights and information for injury victims.</p>
+            <h1 className="text-4xl font-bold text-primary-foreground mb-4">Latest News</h1>
+            <p className="text-primary-foreground/70">Legal insights and updates from our firm.</p>
           </div>
         </section>
 
@@ -54,4 +54,4 @@ const Resources = () => {
   );
 };
 
-export default Resources;
+export default News;

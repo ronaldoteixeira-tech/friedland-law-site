@@ -88,8 +88,7 @@ const Header = () => {
             
             <Link to="/attorneys" className="text-sm font-medium text-white hover:text-gold transition-colors">Attorneys</Link>
             <Link to="/results" className="text-sm font-medium text-white hover:text-gold transition-colors">Results</Link>
-            <Link to="/locations" className="text-sm font-medium text-white hover:text-gold transition-colors">Locations</Link>
-            <Link to="/resources" className="text-sm font-medium text-white hover:text-gold transition-colors">Resources</Link>
+            <Link to="/news" className="text-sm font-medium text-white hover:text-gold transition-colors">News</Link>
             <Link to="/contact" className="text-sm font-medium text-white hover:text-gold transition-colors">Contact</Link>
           </nav>
 
@@ -111,8 +110,7 @@ const Header = () => {
               { to: "/practice-areas", label: "Practice Areas" },
               { to: "/attorneys", label: "Attorneys" },
               { to: "/results", label: "Results" },
-              { to: "/locations", label: "Locations" },
-              { to: "/resources", label: "Resources" },
+              { to: "/news", label: "News" },
               { to: "/contact", label: "Contact" },
             ].map(link => (
               <Link key={link.to} to={link.to} className="block text-lg font-medium text-white hover:text-gold transition-colors"
